@@ -1,1 +1,28 @@
 // Specific CSS for your home-page
+
+body {
+  background-color: white;
+}
+
+.container {
+  width: 85vw;
+  margin: 25px auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 24px;
+  margin: 25px auto;
+}
+
+.card {
+  border: 0.5px solid red;
+  padding: 14px;
+
+  a {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+  }
+}

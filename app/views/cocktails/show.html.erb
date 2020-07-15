@@ -1,0 +1,41 @@
+<div class="banner">
+  <div class="container">
+    <h2><%= @cocktail.name %></h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="header d-flex justify-content-between">
+    <h2>How to make it?</h2>
+  </div>
+
+  <div class="paired-list">
+    <% @cocktail.ingredients.each do |ingredient| %>
+      <span><%= ingredient.name %>: </span>
+      <% ingredient.doses.each do |dose|  %>
+        <span><%= dose.description %></span>
+        <%= link_to "(delete dose)", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+      <br>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div id="cocktail-show-form">
+      <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+    </div>
+    <div id="cocktail-show-form">
+      <%= render "reviews/new", cocktail: @cocktail, review: @review %>
+    </div>
+  </div>
+  <div id="reviews">
+    <h3>Reviews</h3>
+    <div class="cards">
+      <% @reviews.each do |review| %>
+        <div class="card">
+          <p><%= review.content %></p>
+          <p><%= review.rating %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
